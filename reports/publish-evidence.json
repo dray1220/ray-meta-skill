@@ -1,0 +1,117 @@
+{
+  "skill": "ray-meta-skill",
+  "version": "0.1.0",
+  "owner": "dray1220",
+  "published_at": "2026-08-21T14:26:24+08:00",
+  "publish_path": "R3_self_contained",
+  "repository": {
+    "url": "https://github.com/dray1220/ray-meta-skill",
+    "default_branch": "main",
+    "head_sha": "e28548c22c35d629cafcc52dd2a38c2f8feb72ea",
+    "tag": "v0.1.0",
+    "tag_sha": "e28548c22c35d629cafcc52dd2a38c2f8feb72ea",
+    "tag_target_commitish": "main"
+  },
+  "release": {
+    "url": "https://github.com/dray1220/ray-meta-skill/releases/tag/v0.1.0",
+    "name": "v0.1.0 — initial release",
+    "is_draft": false,
+    "is_prerelease": false
+  },
+  "pr_demonstration": {
+    "pr_number": 1,
+    "url": "https://github.com/dray1220/ray-meta-skill/pull/1",
+    "title": "docs: add remote verification to README (post-publish evidence)",
+    "head_branch": "docs/post-publish-evidence",
+    "base_branch": "main",
+    "merged_at": "2026-08-21T06:26:01Z",
+    "merge_strategy": "squash",
+    "merge_sha": "e28548c22c35d629cafcc52dd2a38c2f8feb72ea",
+    "purpose": "demonstrate PR flow end-to-end (not a force-push to main)"
+  },
+  "local_verification": {
+    "validate_skill_py_strict": {
+      "ok": true,
+      "failures": 0,
+      "warnings": 0,
+      "skill_md_bytes": 6251
+    },
+    "classify_risk_py": {
+      "tier": "R3",
+      "reason": "declared in manifest.json",
+      "triggers_fired": ["name_present", "description_present", "publish_intent"]
+    },
+    "secret_scan_py": {
+      "finding_count": 0
+    },
+    "trigger_eval_py": {
+      "total": 18,
+      "passed": 18,
+      "false_positive": 0,
+      "false_negative": 0,
+      "near_neighbor_collision": 0,
+      "threshold": 0.34
+    },
+    "release_check_py": {
+      "phase": "local",
+      "tier": "R3",
+      "ok": true,
+      "ran_tests": true
+    },
+    "unit_tests": {
+      "total": 12,
+      "passed": 12,
+      "failed": 0
+    }
+  },
+  "isolated_install_verification": {
+    "method": "git clone to /tmp, checkout v0.1.0 tag, run full gate suite",
+    "clone_target": "/tmp/ray-meta-skill-install-test (cleaned up after verification)",
+    "tag_checked_out": "v0.1.0",
+    "validate_skill_py_strict_ok": true,
+    "secret_scan_py_findings": 0,
+    "trigger_eval_py_passed": "18/18",
+    "unit_tests_passed": "12/12",
+    "release_check_py_ok": true,
+    "tag_sha_matches_release_target": true
+  },
+  "commit_history": [
+    {
+      "sha": "9bcf63a92ecdf13ddb48286833a561fd968b4d14",
+      "summary": "Initial commit (gh repo create auto-init)",
+      "author": "GitHub",
+      "source": "remote-default"
+    },
+    {
+      "sha": "cd7474ce740a7330b2cf67eaced1de0a7d599cc3",
+      "summary": "feat: initial release of ray-meta-skill v0.1.0",
+      "author": "Ray"
+    },
+    {
+      "sha": "e28548c22c35d629cafcc52dd2a38c2f8feb72ea",
+      "summary": "docs: add remote verification to README (#1)",
+      "author": "Ray",
+      "via": "PR #1 (squash-merged)"
+    }
+  ],
+  "hard_prohibitions_enforced": {
+    "no_api_keys_in_repo": "verified by secret_scan.py (0 findings)",
+    "no_direct_push_to_main_after_init": "verified by PR #1 demonstration (subsequent change went via feature branch + PR)",
+    "no_overwrite_release_tag": "verified by gh release view (v0.1.0 is the only release; no overwrite attempted)",
+    "no_fabricated_evidence": "all claims in README verified status table point to a concrete gate output above",
+    "no_inline_python3_c": "all scripts under scripts/ are .py files invoked via `python3 scripts/<name>.py`",
+    "no_cross_directory_scope_creep": "publish flow stayed strictly in ~/.hermes/skills/ray-meta-skill/ + /tmp/ray-meta-skill-install-test (cleaned up)"
+  },
+  "missing_evidence": [
+    "GitHub Actions CI checks: not configured; no PR checks ran. PR was merged on local review only.",
+    "Provider-backed model run: not executed; trigger eval is regex-based, not LLM-based.",
+    "Human blind review of the publish flow: not conducted; the operator (Ray) is also the publisher."
+  ],
+  "upstream_attribution": {
+    "synthesized_from": [
+      "https://github.com/joeseesun/qiaomu-meta-skill",
+      "https://github.com/yaojingang/yao-meta-skill"
+    ],
+    "differences_documented_in": "README.md (Upstream section)"
+  }
+}
