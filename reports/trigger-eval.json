@@ -1,0 +1,263 @@
+{
+  "ok": true,
+  "summary": {
+    "total": 18,
+    "passed": 18,
+    "false_positive": 0,
+    "false_negative": 0,
+    "near_neighbor_collision": 0,
+    "threshold": 0.34,
+    "description_concepts": [
+      "authoring_action",
+      "eval_release",
+      "skill",
+      "source_material"
+    ]
+  },
+  "failures": [],
+  "buckets": {
+    "should_trigger": [
+      {
+        "prompt": "把这套 SOP 整理成一个可复用的 skill",
+        "family": "cn_workflow_to_skill",
+        "bucket": "should_trigger",
+        "matched_concepts": [
+          "authoring_action",
+          "skill",
+          "source_material"
+        ],
+        "score": 0.75,
+        "negative_pattern": null,
+        "predicted": true,
+        "expected": true,
+        "passed": true
+      },
+      {
+        "prompt": "把这段 prompt 封装成 hermes skill,团队复用",
+        "family": "cn_prompt_to_skill",
+        "bucket": "should_trigger",
+        "matched_concepts": [
+          "authoring_action",
+          "skill",
+          "source_material"
+        ],
+        "score": 0.75,
+        "negative_pattern": null,
+        "predicted": true,
+        "expected": true,
+        "passed": true
+      },
+      {
+        "prompt": "审计这个 skill,只看不动文件",
+        "family": "cn_audit_only",
+        "bucket": "should_trigger",
+        "matched_concepts": [
+          "authoring_action",
+          "skill"
+        ],
+        "score": 0.5,
+        "negative_pattern": null,
+        "predicted": true,
+        "expected": true,
+        "passed": true
+      },
+      {
+        "prompt": "把这个 qiaomu skill 升级到 v2,补 trigger eval 和发布门禁",
+        "family": "cn_upgrade_existing",
+        "bucket": "should_trigger",
+        "matched_concepts": [
+          "authoring_action",
+          "eval_release",
+          "skill"
+        ],
+        "score": 0.75,
+        "negative_pattern": null,
+        "predicted": true,
+        "expected": true,
+        "passed": true
+      },
+      {
+        "prompt": "把这条工作流做成 skill 发布到 github",
+        "family": "cn_publish_intent",
+        "bucket": "should_trigger",
+        "matched_concepts": [
+          "eval_release",
+          "skill",
+          "source_material"
+        ],
+        "score": 0.75,
+        "negative_pattern": null,
+        "predicted": true,
+        "expected": true,
+        "passed": true
+      },
+      {
+        "prompt": "Turn this repeated workflow into a reusable skill",
+        "family": "en_workflow_to_skill",
+        "bucket": "should_trigger",
+        "matched_concepts": [
+          "skill",
+          "source_material"
+        ],
+        "score": 0.5,
+        "negative_pattern": null,
+        "predicted": true,
+        "expected": true,
+        "passed": true
+      },
+      {
+        "prompt": "Package this SOP as a Hermes skill with risk gates",
+        "family": "en_package_with_gates",
+        "bucket": "should_trigger",
+        "matched_concepts": [
+          "authoring_action",
+          "eval_release",
+          "skill",
+          "source_material"
+        ],
+        "score": 1.0,
+        "negative_pattern": null,
+        "predicted": true,
+        "expected": true,
+        "passed": true
+      },
+      {
+        "prompt": "Audit this existing skill — read only, do not mutate",
+        "family": "en_audit_only",
+        "bucket": "should_trigger",
+        "matched_concepts": [
+          "authoring_action",
+          "skill"
+        ],
+        "score": 0.5,
+        "negative_pattern": null,
+        "predicted": true,
+        "expected": true,
+        "passed": true
+      }
+    ],
+    "should_not_trigger": [
+      {
+        "prompt": "翻译一下这个文档",
+        "family": "translation",
+        "bucket": "should_not_trigger",
+        "matched_concepts": [],
+        "score": 0.0,
+        "negative_pattern": "翻译一下",
+        "predicted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "prompt": "总结一下今天的工作",
+        "family": "summary",
+        "bucket": "should_not_trigger",
+        "matched_concepts": [],
+        "score": 0.0,
+        "negative_pattern": null,
+        "predicted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "prompt": "解释一下 hermes 是怎么工作的",
+        "family": "explanation",
+        "bucket": "should_not_trigger",
+        "matched_concepts": [],
+        "score": 0.0,
+        "negative_pattern": null,
+        "predicted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "prompt": "头脑风暴一下 skill 的可能方向",
+        "family": "brainstorm",
+        "bucket": "should_not_trigger",
+        "matched_concepts": [
+          "skill"
+        ],
+        "score": 0.25,
+        "negative_pattern": "头脑风暴",
+        "predicted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "prompt": "Help me write a python package and publish to PyPI",
+        "family": "ordinary_python_package",
+        "bucket": "should_not_trigger",
+        "matched_concepts": [
+          "authoring_action"
+        ],
+        "score": 0.25,
+        "negative_pattern": null,
+        "predicted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "prompt": "Just explain how agent skills work in general",
+        "family": "explanation_en",
+        "bucket": "should_not_trigger",
+        "matched_concepts": [],
+        "score": 0.0,
+        "negative_pattern": "just explain",
+        "predicted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "prompt": "优化这个 prompt 的措辞",
+        "family": "prompt_phrasing_tweak",
+        "bucket": "should_not_trigger",
+        "matched_concepts": [
+          "authoring_action",
+          "source_material"
+        ],
+        "score": 0.5,
+        "negative_pattern": "prompt 的措辞",
+        "predicted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "prompt": "微调一下这个 prompt",
+        "family": "prompt_phrasing_tweak_en",
+        "bucket": "should_not_trigger",
+        "matched_concepts": [
+          "source_material"
+        ],
+        "score": 0.25,
+        "negative_pattern": null,
+        "predicted": false,
+        "expected": false,
+        "passed": true
+      }
+    ],
+    "near_neighbor": [
+      {
+        "prompt": "把这个 README 写好一点",
+        "family": "readme_polish",
+        "bucket": "near_neighbor",
+        "matched_concepts": [],
+        "score": 0.0,
+        "negative_pattern": null,
+        "predicted": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "prompt": "review this PR for style",
+        "family": "pr_review",
+        "bucket": "near_neighbor",
+        "matched_concepts": [],
+        "score": 0.0,
+        "negative_pattern": null,
+        "predicted": false,
+        "expected": false,
+        "passed": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "recommended_threshold": 0.34,
+  "description_required_concepts": [
+    "skill",
+    "source_material",
+    "authoring_action"
+  ],
+  "positive_concepts": {
+    "skill": [
+      "skill",
+      "agent skill",
+      "技能",
+      "能力包"
+    ],
+    "source_material": [
+      "workflow",
+      "prompt",
+      "transcript",
+      "docs",
+      "runbook",
+      "notes",
+      "SOP",
+      "流程",
+      "工作流",
+      "提示词",
+      "对话记录",
+      "脚本",
+      "现成 skill"
+    ],
+    "authoring_action": [
+      "create",
+      "refactor",
+      "evaluate",
+      "package",
+      "publish",
+      "upgrade",
+      "improve",
+      "migrate",
+      "install",
+      "audit",
+      "创建",
+      "整理",
+      "封装",
+      "沉淀",
+      "优化",
+      "升级",
+      "迁移",
+      "安装",
+      "打包",
+      "审计",
+      "评估",
+      "诊断"
+    ],
+    "ray_optional": [
+      "ray",
+      "ray-flavored",
+      "ray-meta"
+    ],
+    "eval_release": [
+      "eval",
+      "trigger",
+      "output",
+      "release gate",
+      "门禁",
+      "评估",
+      "触发",
+      "边界",
+      "发布",
+      "risk"
+    ]
+  },
+  "negative_patterns": [
+    "不要做成 skill",
+    "不用做成 skill",
+    "只要总结",
+    "只解释",
+    "翻译一下",
+    "写个标题",
+    "头脑风暴",
+    "先不要打包",
+    "brainstorm only",
+    "just explain",
+    "translate only",
+    "one off",
+    "普通 python 包",
+    "发布到 pypi",
+    "release check only",
+    "不要审计",
+    "prompt-phrasing tweaks",
+    "polish prompt",
+    "打磨措辞",
+    "调一下措辞",
+    "微调 prompt",
+    "调措辞",
+    "调整措辞",
+    "prompt wording",
+    "prompt 的措辞"
+  ],
+  "should_trigger": [
+    {
+      "text": "把这套 SOP 整理成一个可复用的 skill",
+      "family": "cn_workflow_to_skill"
+    },
+    {
+      "text": "把这段 prompt 封装成 hermes skill,团队复用",
+      "family": "cn_prompt_to_skill"
+    },
+    {
+      "text": "审计这个 skill,只看不动文件",
+      "family": "cn_audit_only"
+    },
+    {
+      "text": "把这个 qiaomu skill 升级到 v2,补 trigger eval 和发布门禁",
+      "family": "cn_upgrade_existing"
+    },
+    {
+      "text": "把这条工作流做成 skill 发布到 github",
+      "family": "cn_publish_intent"
+    },
+    {
+      "text": "Turn this repeated workflow into a reusable skill",
+      "family": "en_workflow_to_skill"
+    },
+    {
+      "text": "Package this SOP as a Hermes skill with risk gates",
+      "family": "en_package_with_gates"
+    },
+    {
+      "text": "Audit this existing skill — read only, do not mutate",
+      "family": "en_audit_only"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "text": "翻译一下这个文档",
+      "family": "translation"
+    },
+    {
+      "text": "总结一下今天的工作",
+      "family": "summary"
+    },
+    {
+      "text": "解释一下 hermes 是怎么工作的",
+      "family": "explanation"
+    },
+    {
+      "text": "头脑风暴一下 skill 的可能方向",
+      "family": "brainstorm"
+    },
+    {
+      "text": "Help me write a python package and publish to PyPI",
+      "family": "ordinary_python_package"
+    },
+    {
+      "text": "Just explain how agent skills work in general",
+      "family": "explanation_en"
+    },
+    {
+      "text": "优化这个 prompt 的措辞",
+      "family": "prompt_phrasing_tweak"
+    },
+    {
+      "text": "微调一下这个 prompt",
+      "family": "prompt_phrasing_tweak_en"
+    }
+  ],
+  "near_neighbor": [
+    {
+      "text": "把这个 README 写好一点",
+      "family": "readme_polish"
+    },
+    {
+      "text": "review this PR for style",
+      "family": "pr_review"
+    }
+  ]
+}

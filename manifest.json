@@ -1,0 +1,44 @@
+{
+  "name": "ray-meta-skill",
+  "version": "0.1.0",
+  "owner": "Ray",
+  "updated_at": "2026-08-21",
+  "status": "active",
+  "risk_tier": "R3",
+  "lifecycle_stage": "local",
+  "context_budget_tier": "production",
+  "review_cadence": "quarterly",
+  "upstream_inspiration": "joeseesun/qiaomu-meta-skill; yaojingang/yao-meta-skill",
+  "ray_defaults": {
+    "skill_name_style": "lowercase-verb-noun-with-hyphens",
+    "doc_language": "zh-CN",
+    "code_identifiers": "en",
+    "copyright": "Copyright (c) Ray",
+    "no_inline_python_c": true,
+    "no_inline_bash_c": true,
+    "claim_evidence_required": true
+  },
+  "target_platforms": [
+    "openai",
+    "claude",
+    "generic",
+    "agent-skills-compatible",
+    "vscode"
+  ],
+  "risk_tiers": ["R0", "R1", "R2", "R3"],
+  "gate_sets": {
+    "R0": ["validate_frontmatter"],
+    "R1": ["validate_frontmatter", "trigger_eval", "readme_hook"],
+    "R2": ["validate_frontmatter", "trigger_eval", "readme_hook", "interface_yaml", "risk_report", "secret_scan", "manifest_consistent"],
+    "R3": ["validate_frontmatter", "trigger_eval", "readme_hook", "interface_yaml", "risk_report", "secret_scan", "manifest_consistent", "version_immutability", "release_gate", "remote_version_check", "public_claim_guard"]
+  },
+  "hard_prohibitions": [
+    "no_api_keys_in_committed_files",
+    "no_direct_push_to_default_branch",
+    "no_overwrite_release_tag",
+    "no_fabricated_evidence",
+    "no_inline_python3_c_for_nontrivial_logic",
+    "no_cross_directory_scope_creep",
+    "no_claim_without_verifiable_handle"
+  ]
+}

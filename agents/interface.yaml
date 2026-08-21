@@ -1,0 +1,71 @@
+interface:
+  display_name: "Ray Meta Skill"
+  short_description: "Turn repeated workflows into Hermes Skills with risk-driven gates and evidence-bound claims"
+  default_prompt: |
+    Use $ray-meta-skill as the single skill-authoring authority. Match gate strictness to risk tier (R0/R1/R2/R3), classify risk deterministically before creating files, and bundle the full path (intent → prior-art quick check → package → trigger eval → release check → publish) so no separate discovery or publisher skill is required. Honor audit/evaluate/diagnose-only requests by reporting findings without mutating files. Refuse to package one-off summaries, translations, brainstorms, and tasks that should stay as plain conversation. Never fabricate evidence — missing provider runs, install proofs, or human reviews stay marked `missing evidence`. For public release, publish only on explicit user request, through a feature branch + PR + versioned GitHub Release + isolated clean install verification; never push to main/master, never overwrite an existing vX.Y.Z Release, and refuse to bundle API keys, tokens, passwords, or private paths into any committed file. Always bring back real test outputs (`pytest`, `gh release view`, `curl -I`), not narrative claims.
+  examples:
+    - "把这套 SOP 整理成一个可复用的 hermes skill"
+    - "把这个 prompt 封装成团队可复用的 skill,带 trigger eval"
+    - "审计这个 skill,只看不动文件"
+    - "把这个 skill 升级到下一版,补门禁和 release gate"
+    - "把这条工作流打包发布到 GitHub,完成安装验证"
+    - "Turn this workflow into a reusable skill with risk gates"
+    - "Package this prompt as a Hermes skill and publish it"
+    - "Audit this skill — read-only, do not edit"
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets:
+    - "openai"
+    - "claude"
+    - "generic"
+    - "agent-skills-compatible"
+    - "vscode"
+  activation:
+    mode: "manual"
+    paths: []
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "read-only research; no unreviewed third-party code execution"
+    generated_public_claims: "evidence-bound"
+  permissions:
+    network: "GitHub API read for remote version check; external research only when explicitly requested"
+    file_write: "skill package files only unless user explicitly requests sync, publish, or install"
+    subprocess: "bundled scripts only (classify_risk, validate, trigger_eval, secret_scan, release_check, publish_skill); no separate creator, discovery, or publisher skill"
+    interactive: "avoid unless GitHub auth or installer requires it"
+  degradation:
+    openai: "metadata-adapter"
+    claude: "neutral-source-plus-adapter"
+    generic: "neutral-source"
+    agent-skills-compatible: "canonical-source"
+    vscode: "neutral-source-plus-review-notes"
+gates:
+  R0:
+    - "validate_frontmatter"
+  R1:
+    - "validate_frontmatter"
+    - "trigger_eval"
+    - "readme_hook"
+  R2:
+    - "validate_frontmatter"
+    - "trigger_eval"
+    - "readme_hook"
+    - "interface_yaml"
+    - "risk_report"
+    - "secret_scan"
+    - "manifest_consistent"
+  R3:
+    - "validate_frontmatter"
+    - "trigger_eval"
+    - "readme_hook"
+    - "interface_yaml"
+    - "risk_report"
+    - "secret_scan"
+    - "manifest_consistent"
+    - "version_immutability"
+    - "release_gate"
+    - "remote_version_check"
+    - "public_claim_guard"
