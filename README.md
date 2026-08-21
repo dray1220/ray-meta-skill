@@ -97,6 +97,8 @@ See `references/ray-style-checklist.md`.
 | `release_check.py --phase local --run-tests` | ok=True, tier=R3 |
 | `publish_skill.py --phase local` | clean dry-run, stdout=JSON, stderr=log |
 | Unit tests (`unittest discover`) | 12/12 PASS |
+| Remote default branch | `cd7474c feat: initial release of ray-meta-skill v0.1.0` |
+| GitHub URL | `https://github.com/dray1220/ray-meta-skill` |
 
 The `prompt-phrasing tweaks` boundary is covered via both the description and the negative-pattern list. Real users who say "打磨 prompt 措辞" (different phrasing) would still hit this Skill; if that becomes a real false-positive in production, add more negative variants.
 
